@@ -1,0 +1,12 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Set the base directory to your subdirectory
+RewriteBase /PHP_template/
+
+# Prevent direct access to certain files and directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect all requests to index.php (your front controller)
+RewriteRule ^(.*)$ index.php [QSA,L]
